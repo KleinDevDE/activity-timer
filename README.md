@@ -1,5 +1,7 @@
 # Activity Timer - Time Tracking Built Into Trello
 
+> **⚠️ Maintenance Mode:** Activity Timer is now in maintenance mode and will only receive security updates going forward. I'm focusing my time and energy on [Limita](https://limita.org), a paid successor that offers billable hours, custom fields, revenue dashboards, and more. Activity Timer will remain free and open-source. [Learn more about Limita →](https://limita.org)
+
 **Trusted by 27,000+ teams worldwide.** Activity Timer is a Trello Power-Up that eliminates context-switching by bringing time tracking directly into your Trello cards. Track time spent on work, set estimates, receive smart notifications, and export comprehensive reports - all without leaving Trello.
 
 ### ⚡ What Activity Timer Does:
@@ -11,7 +13,7 @@
 - 📅 **Calendar View** - Visualize your week of time tracking
 - 🔌 **API Access** - All data stored in Trello's native storage, accessible via REST API
 
-**Open source, privacy-first, and actively maintained.**
+**Open source and privacy-first.**
 
 ---
 
@@ -129,7 +131,7 @@ Want to contribute or set up a local development environment? Check out our comp
 * ✅ **No external database** - Simple architecture, no additional services to maintain
 * ✅ **Free core features** - Essential time tracking at no cost
 * ✅ **Developer-friendly** - REST API access and comprehensive documentation
-* ✅ **Active maintenance** - Regular updates and responsive support
+* ✅ **Stable & reliable** - Battle-tested by thousands of teams over 5+ years
 
 ---
 

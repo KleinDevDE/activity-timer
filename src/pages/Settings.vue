@@ -111,36 +111,44 @@
       />
     </div>
 
-    <!-- Support and Limita info -->
+    <!-- Limita Announcement -->
+    <div class="limita-announcement-section">
+      <div class="announcement-badge">Important Update</div>
+      <h3 class="announcement-heading">
+        Activity Timer is entering maintenance mode
+      </h3>
+      <p class="announcement-text">
+        After 5+ years of free development, I'm now focusing on
+        <strong>Limita</strong>, a paid alternative with billable hours, custom
+        fields, and revenue dashboards. Activity Timer will remain free and
+        open-source, but will only receive security updates going forward.
+      </p>
+      <Button
+        size="small"
+        label="Learn More About This Change"
+        icon="pi pi-info-circle"
+        class="w-full"
+        severity="info"
+        @click="openLimitaAnnouncement"
+      />
+    </div>
+
+    <!-- Support Section -->
     <div class="support-section">
-      <h3 class="support-heading">🚀 Activity Timer → Limita</h3>
       <p class="support-text">
-        Activity Timer is evolving into
+        <strong>Need help?</strong><br />
         <a
-          href="https://limita.org"
+          href="https://github.com/danniehansen/activity-timer/issues"
           target="_blank"
           rel="noopener noreferrer"
           class="support-link"
-          >Limita</a
+          >Report issues on GitHub</a
         >
-        - the next generation of time tracking and project management.
+        or email
+        <a href="mailto:support@limita.org" class="support-link"
+          >support@limita.org</a
+        >
       </p>
-      <div class="support-contact">
-        <p class="support-text">
-          <strong>Need help?</strong><br />
-          <a
-            href="https://github.com/danniehansen/activity-timer/issues"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="support-link"
-            >Report issues on GitHub</a
-          >
-          or email
-          <a href="mailto:dannie@limita.org" class="support-link"
-            >dannie@limita.org</a
-          >
-        </p>
-      </div>
     </div>
   </div>
 </template>
@@ -369,6 +377,15 @@ watch(autoListId, () => {
   setAutoTimerListId(autoListId.value);
 });
 
+const openLimitaAnnouncement = async () => {
+  await getTrelloCard().modal({
+    title: 'Introducing Limita',
+    url: './index.html?page=limita-announcement',
+    fullscreen: false,
+    height: 900
+  });
+};
+
 initialize();
 </script>
 
@@ -383,8 +400,62 @@ initialize();
   opacity: 0;
 }
 
-.support-section {
+/* Limita Announcement Section */
+.limita-announcement-section {
   margin-top: 1.5rem;
+  padding: 1rem;
+  border: 1px solid #b8daff;
+  border-radius: 6px;
+  background-color: #e8f4fd;
+}
+
+html[data-color-mode='dark'] .limita-announcement-section {
+  background-color: #1a365d;
+  border-color: #2b6cb0;
+}
+
+.announcement-badge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #0c5460;
+  background-color: #bee5eb;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+
+html[data-color-mode='dark'] .announcement-badge {
+  background-color: #2b6cb0;
+  color: #bee5eb;
+}
+
+.announcement-heading {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #0c5460;
+}
+
+html[data-color-mode='dark'] .announcement-heading {
+  color: #90cdf4;
+}
+
+.announcement-text {
+  margin: 0 0 1rem 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #0c5460;
+}
+
+html[data-color-mode='dark'] .announcement-text {
+  color: #bee5eb;
+}
+
+.support-section {
+  margin-top: 1rem;
   padding: 1rem;
   border: 1px solid #e9ecef;
   border-radius: 6px;
@@ -396,17 +467,6 @@ html[data-color-mode='dark'] .support-section {
   border-color: #4a5568;
 }
 
-.support-heading {
-  margin: 0 0 0.75rem 0;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #212529;
-}
-
-html[data-color-mode='dark'] .support-heading {
-  color: #e2e8f0;
-}
-
 .support-text {
   margin: 0 0 0.5rem 0;
   font-size: 0.875rem;
@@ -416,16 +476,6 @@ html[data-color-mode='dark'] .support-heading {
 
 html[data-color-mode='dark'] .support-text {
   color: #cbd5e0;
-}
-
-.support-contact {
-  margin-top: 0.75rem;
-  padding-top: 0.75rem;
-  border-top: 1px solid #dee2e6;
-}
-
-html[data-color-mode='dark'] .support-contact {
-  border-top-color: #4a5568;
 }
 
 .support-link {

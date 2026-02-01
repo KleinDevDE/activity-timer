@@ -139,28 +139,15 @@
       </div>
     </div>
 
-    <!-- Limita announcement footer -->
-    <div class="limita-footer">
-      <span class="limita-emoji">🚀</span>
-      <span class="limita-text"
-        >Activity Timer is evolving into
-        <a
-          href="https://limita.org"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="limita-link"
-          >Limita</a
-        ></span
-      >
-      <span class="limita-separator">•</span>
-      <a
-        href="https://github.com/danniehansen/activity-timer/issues"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="support-link"
-        title="Get support or report issues"
-        >Support</a
-      >
+    <!-- Limita announcement banner -->
+    <div class="limita-banner" @click="openLimitaAnnouncement">
+      <div class="limita-banner-content">
+        <span class="limita-badge">New</span>
+        <span class="limita-banner-text"
+          >Activity Timer is entering maintenance mode</span
+        >
+      </div>
+      <span class="limita-banner-cta">Learn about Limita →</span>
     </div>
   </div>
 
@@ -430,6 +417,17 @@ const openManageMemberTime = async (memberId: string) => {
   });
 };
 
+const openLimitaAnnouncement = async () => {
+  const trelloInstance = getTrelloCard();
+
+  await trelloInstance.modal({
+    title: 'Introducing Limita',
+    url: './index.html?page=limita-announcement',
+    fullscreen: false,
+    height: 900
+  });
+};
+
 getTrelloCard().render(trelloTick);
 trelloTick();
 
@@ -666,68 +664,60 @@ html[data-color-mode='dark'] .progress-over {
   background-color: #fc8181;
 }
 
-/* Limita Footer */
-.limita-footer {
+/* Limita Banner */
+.limita-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.625rem 0.75rem;
+  margin-top: 0.5rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.limita-banner:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.limita-banner-content {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding-top: 0.5rem;
-  border-top: 1px solid #e9ecef;
-  font-size: 11px;
-  color: #6c757d;
-  line-height: 1.2;
+  flex-wrap: wrap;
 }
 
-html[data-color-mode='dark'] .limita-footer {
-  border-top-color: #495057;
+.limita-badge {
+  display: inline-block;
+  padding: 0.125rem 0.375rem;
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #667eea;
+  background: white;
+  border-radius: 3px;
 }
 
-.limita-emoji {
+.limita-banner-text {
   font-size: 12px;
-  line-height: 1;
-  display: inline-flex;
-  align-items: center;
-}
-
-.limita-text {
-  line-height: 1.2;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25rem;
-}
-
-.limita-link,
-.support-link {
-  color: #0079bf;
-  text-decoration: none;
   font-weight: 500;
-  transition: color 0.2s;
+  color: white;
+  line-height: 1.3;
 }
 
-.limita-link:hover,
-.support-link:hover {
-  color: #005a8c;
-  text-decoration: underline;
+.limita-banner-cta {
+  font-size: 11px;
+  font-weight: 600;
+  color: white;
+  white-space: nowrap;
+  opacity: 0.9;
 }
 
-html[data-color-mode='dark'] .limita-link,
-html[data-color-mode='dark'] .support-link {
-  color: #4dabf7;
-}
-
-html[data-color-mode='dark'] .limita-link:hover,
-html[data-color-mode='dark'] .support-link:hover {
-  color: #74c0fc;
-}
-
-.limita-separator {
-  color: #dee2e6;
-  line-height: 1;
-  display: inline-flex;
-  align-items: center;
-}
-
-html[data-color-mode='dark'] .limita-separator {
-  color: #495057;
+.limita-banner:hover .limita-banner-cta {
+  opacity: 1;
 }
 </style>

@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Released]
 
+## [2.10.0] - 2026-02-01
+
+### Changed
+
+- Activity Timer is now in maintenance mode. This will be the last update. Going forward, only security patches will be released.
+- Updated README to reflect maintenance mode status.
+- Replaced the Limita footer announcement with a more prominent banner that opens a detailed announcement modal.
+- Updated Settings page announcement section with clearer messaging about the transition.
+
+### Added
+
+- Added new Limita announcement page accessible from the card back section and Settings page. The page includes a video explaining the transition, details about what maintenance mode means for Activity Timer users, information about Limita and its features, and links to the Limita website, pricing, and blog.
+
 ## [2.9.1] - 2025-11-10
 
 ### Security

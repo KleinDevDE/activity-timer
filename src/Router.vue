@@ -25,6 +25,7 @@
   <DataExporterEstimates v-else-if="page === 'estimates'" />
   <DatetimePicker v-else-if="page === 'datetime'" />
   <HelpPage v-else-if="page === 'help'" />
+  <LimitaAnnouncement v-else-if="page === 'limita-announcement'" />
 </template>
 
 <script setup lang="ts">
@@ -42,6 +43,7 @@ import DataExporterTime from './pages/DataExporter/TimeTracking/index.vue';
 import DataExporterEstimates from './pages/DataExporter/Estimates/index.vue';
 import DatetimePicker from './components/DatetimePicker.vue';
 import HelpPage from './pages/HelpPage.vue';
+import LimitaAnnouncement from './pages/LimitaAnnouncement.vue';
 import { ref } from 'vue';
 import lightTheme from 'primevue/resources/themes/bootstrap4-light-blue/theme.css?url';
 import darkTheme from 'primevue/resources/themes/bootstrap4-dark-blue/theme.css?url';
